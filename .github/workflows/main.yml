@@ -1,4 +1,4 @@
-name: Deploying staging Branch
+name: Deploying main Branch
 
 on:
   push:
