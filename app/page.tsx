@@ -137,19 +137,19 @@ type CtaItem = {
 const ctaItems: CtaItem[] = [
   {
     label: "Visit Our Website",
-    href: "https://socials.nisarbakers.com",
+    href: "https://www.nisarbakers.com",
     icon: <FaGlobe size={24} aria-hidden="true" />,
   },
   {
     label: "Android",
     sublabel: "Download for",
-    href: "https://socials.nisarbakers.com",
+    href: "https://nisarbakers.com",
     icon: <FaAndroid size={24} aria-hidden="true" />,
   },
   {
     label: "iOS",
     sublabel: "Download for",
-    href: "https://socials.nisarbakers.com",
+    href: "https://nisarbakers.com",
     icon: <FaApple size={24} aria-hidden="true" />,
   },
 ]
