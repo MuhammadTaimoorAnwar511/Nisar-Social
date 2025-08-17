@@ -1,0 +1,40 @@
+name: Deploying staging Branch
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: [self-hosted, nisar-social-vm]
+
+    env:
+      PM2_PROCESS_NAME: "nisar-social"
+      PORT: 3010
+      NODE_VERSION: 20
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          clean: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+
+      - name: Build Vite app
+        run: npm run build
+
+      - name: Install serve and pm2 globally
+        run: npm install -g serve pm2
+
+      - name: Start or Restart the Application with PM2
+        run: |
+          pm2 restart "$PM2_PROCESS_NAME" || pm2 start "serve" --name "$PM2_PROCESS_NAME" -- -s dist -l $PORT
+          pm2 save
