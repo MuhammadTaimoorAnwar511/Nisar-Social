@@ -278,53 +278,6 @@ export default function Page() {
             <span className="block">Nisar Bakers</span>
           </h1>
 
-          {/* CTA Section */}
-          <div
-            ref={ctaRef}
-            className={cn(
-              "w-full mt-4",
-              ctaIn ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
-            )}
-            style={{ transition: "opacity 700ms ease, transform 700ms ease" }}
-            aria-label="Call to action"
-          >
-            <div className="mx-auto grid max-w-3xl gap-3 sm:grid-cols-3">
-              {ctaItems.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={cn(
-                    "group relative flex h-16 w-full items-center justify-center gap-3 overflow-hidden rounded-2xl px-4",
-                    "bg-gradient-to-r from-[var(--nb-gold)] to-amber-300 text-black",
-                    "ring-1 ring-black/10 shadow-lg",
-                    "transition-all duration-200 hover:scale-[1.02] focus:scale-[1.02]",
-                    "hover:shadow-[0_0_0_3px_rgba(226,184,87,0.35),0_20px_50px_rgba(0,0,0,0.35)]",
-                    "cta-pulse"
-                  )}
-                  aria-label={item.sublabel ? `${item.sublabel} ${item.label}` : item.label}
-                >
-                  <span className="shrink-0 text-black/80">{item.icon}</span>
-                  <span className="flex min-w-0 flex-col">
-                    {item.sublabel ? (
-                      <>
-                        <span className="text-xs text-black/70">{item.sublabel}</span>
-                        <span className="truncate text-lg font-extrabold leading-5">
-                          {item.label}
-                        </span>
-                      </>
-                    ) : (
-                      <span className="truncate text-base sm:text-lg font-extrabold">
-                        {item.label}
-                      </span>
-                    )}
-                  </span>
-                </a>
-              ))}
-            </div>
-          </div>
-
           {/* Tagline */}
           <p
             className="mx-auto mt-5 max-w-2xl text-base text-white/90 sm:text-lg"
@@ -438,6 +391,52 @@ export default function Page() {
           ))}
         </div>
       </section>
+          {/* CTA Section */}
+          <div
+            ref={ctaRef}
+            className={cn(
+              "w-full mt-4",
+              ctaIn ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+            )}
+            style={{ transition: "opacity 700ms ease, transform 700ms ease" }}
+            aria-label="Call to action"
+          >
+            <div className="mx-auto grid max-w-3xl gap-3 sm:grid-cols-3">
+              {ctaItems.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(
+                    "group relative flex h-16 w-full items-center justify-center gap-3 overflow-hidden rounded-2xl px-4",
+                    "bg-gradient-to-r from-[var(--nb-gold)] to-amber-300 text-black",
+                    "ring-1 ring-black/10 shadow-lg",
+                    "transition-all duration-200 hover:scale-[1.02] focus:scale-[1.02]",
+                    "hover:shadow-[0_0_0_3px_rgba(226,184,87,0.35),0_20px_50px_rgba(0,0,0,0.35)]",
+                    "cta-pulse"
+                  )}
+                  aria-label={item.sublabel ? `${item.sublabel} ${item.label}` : item.label}
+                >
+                  <span className="shrink-0 text-black/80">{item.icon}</span>
+                  <span className="flex min-w-0 flex-col">
+                    {item.sublabel ? (
+                      <>
+                        <span className="text-xs text-black/70">{item.sublabel}</span>
+                        <span className="truncate text-lg font-extrabold leading-5">
+                          {item.label}
+                        </span>
+                      </>
+                    ) : (
+                      <span className="truncate text-base sm:text-lg font-extrabold">
+                        {item.label}
+                      </span>
+                    )}
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
 
       {/* Footer */}
       <footer className="mt-8 border-t border-white/10 bg-gradient-to-b from-transparent to-[rgba(20,12,6,0.75)]">
