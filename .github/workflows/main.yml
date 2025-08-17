@@ -28,13 +28,13 @@ jobs:
       - name: Install dependencies
         run: npm install --legacy-peer-deps
 
-      - name: Build Vite app
+      - name: Build Next.js app
         run: npm run build
 
-      - name: Install serve and pm2 globally
-        run: npm install -g serve pm2
+      - name: Install pm2 globally
+        run: npm install -g pm2
 
-      - name: Start or Restart the Application with PM2
+      - name: Start or Restart the Next.js Application with PM2
         run: |
-          pm2 restart "$PM2_PROCESS_NAME" || pm2 start "serve" --name "$PM2_PROCESS_NAME" -- -s dist -l $PORT
+          pm2 restart "$PM2_PROCESS_NAME" || PORT=$PORT pm2 start "npm start" --name "$PM2_PROCESS_NAME"
           pm2 save
